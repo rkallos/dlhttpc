@@ -88,8 +88,8 @@ request(ReqId, From, Host, Port, Ssl, Path, Method, Hdrs, Body, Options) ->
             {response, ReqId, self(), {error, Reason}};
         error:closed ->
             {response, ReqId, self(), {error, connection_closed}};
-        error:Error ->
-            {exit, ReqId, self(), {Error, erlang:get_stacktrace()}}
+        error:Error:Stacktrace ->
+            {exit, ReqId, self(), {Error, Stacktrace}}
     end,
     case Result of
         {response, _, _, {ok, {no_return, _}}} -> ok;

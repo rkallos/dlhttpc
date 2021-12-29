@@ -1,0 +1,4 @@
+[{<<"dispcount">>,
+  {git,"https://github.com/ferd/dispcount.git",
+       {ref,"2ae2eeceec74b29db5392068869276fd106ec573"}},
+  0}].
